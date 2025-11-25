@@ -1,3 +1,4 @@
+// contact us
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
 
@@ -148,25 +149,31 @@ async function getMeals() {
 
 
 function displayMeals(meals) {
+  if (!meals) {
+    document.getElementById("main").innerHTML =
+      `<p class="text-center text-white fs-3">No meals found 😔</p>`;
+    return;
+  }
+
   let box = `<div class="row g-4">`;
   
   meals.forEach(meal => {
     box += `
-    <div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="card bg-dark text-white meal-card position-relative tr d-flex mb-1 overflow-hidden" onclick="getMealDetails('${meal.idMeal}')">
-    <img src="${meal.strMealThumb}" class="" alt="">
-    <div class="card-body position-absolute top-0 bottom-0 start-0 end-0 px-2 bg-white opacity-75 d-flex">
-    <h5 class="card-title text-center text-dark position-relative top-50 fs-4">${meal.strMeal}</h5>
-              </div>
-            </div>
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="card bg-dark text-white meal-card position-relative tr d-flex mb-1 overflow-hidden" onclick="getMealDetails('${meal.idMeal}')">
+          <img src="${meal.strMealThumb}" class="" alt="">
+          <div class="card-body position-absolute top-0 bottom-0 start-0 end-0 px-2 bg-white opacity-75 d-flex">
+            <h5 class="card-title text-center text-dark position-relative top-50 fs-4">${meal.strMeal}</h5>
           </div>
-        `;
+        </div>
+      </div>
+    `;
   });
 
   box += `</div>`;
-
   document.getElementById("main").innerHTML = box;
 }
+
 
 
 
@@ -398,13 +405,13 @@ function showLoader() {
   loader.style.opacity = "1";
 }
 
-// hide loader مع fade-out
+//fade-out
 function hideLoader() {
   const loader = document.getElementById("loader");
-  loader.style.opacity = "0"; // يبدأ الـ fade
+  loader.style.opacity = "0"; 
   setTimeout(() => {
-    loader.style.display = "none"; // بعد الانتهاء يخفيه
-  }, 500); // نفس مدة transition
+    loader.style.display = "none";
+  }, 500); 
 }
 
 
@@ -415,43 +422,6 @@ function hideLoader() {
 const searchByName = document.getElementById("searchInput1");
 const searchByLetter = document.getElementById("searchInput2");
 const mainContainer = document.getElementById("main");
-
-function showLoader() {
-  const loader = document.getElementById("loader");
-  loader.style.display = "flex";
-  loader.style.opacity = "1";
-}
-function hideLoader() {
-  const loader = document.getElementById("loader");
-  loader.style.opacity = "0";
-  setTimeout(() => {
-    loader.style.display = "none";
-  }, 500);
-}
-
-
-function displayMeals(meals) {
-  if (!meals) {
-    mainContainer.innerHTML = `<p class="text-center text-white fs-3">No meals found 😔</p>`;
-    return;
-  }
-
-  let box = `<div class="row g-4">`;
-  meals.forEach(meal => {
-    box += `
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="meal-card cursor-pointer card category-card bg-transparent position-relative d-flex overflow-hidden" onclick="getMealDetails('${meal.idMeal}')">
-          <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
-          <div class="card-body text-center position-absolute top-0 bottom-0 start-0 end-0 bg-white opacity-75 d-flex align-content-center">
-            <h5 class="card-title meal-title text-dark position-relative top-50 start-0 fs-4">${meal.strMeal}</h5>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-  box += `</div>`;
-  mainContainer.innerHTML = box;
-}
 
 
 searchByName.addEventListener("input", async function() {
