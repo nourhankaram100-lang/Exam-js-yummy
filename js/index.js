@@ -157,7 +157,7 @@ async function getMeals() {
     displayMeals(data.meals);
     hideLoader();
 }
-
+ 
 function displayMeals(meals) {
     if (!meals) {
         document.getElementById("main").innerHTML =
@@ -169,7 +169,7 @@ function displayMeals(meals) {
     meals.forEach(meal => {
         box += `
         <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="card meal-card cursor-pointer bg-dark text-white position-relative overflow-hidden" onclick="getMealDetails('${meal.idMeal}')">
+            <div class="card meal-card cursor-pointer bg-dark text-white position-relative overflow-hidden" data-id="${meal.idMeal}">
                 <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
                 <div class="card-body text-center position-absolute top-0 bottom-0 start-0 end-0 bg-white opacity-75 d-flex align-items-center justify-content-center">
                     <h5 class="card-title text-black position-absolute start-0 p-1 fs-3">${meal.strMeal}</h5>
@@ -179,7 +179,16 @@ function displayMeals(meals) {
     });
     box += `</div>`;
     document.getElementById("main").innerHTML = box;
+
+    // بعد ما العناصر اتضافت للـ DOM
+    document.querySelectorAll(".meal-card").forEach(card => {
+        card.addEventListener("click", () => {
+            const id = card.dataset.id;
+            getMealDetails(id);
+        });
+    });
 }
+
 
 async function getMealDetails(id) {
     showLoader();
