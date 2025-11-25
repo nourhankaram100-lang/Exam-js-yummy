@@ -328,12 +328,21 @@ async function getMealsByIngredient(ingredientName) {
 }
 
 // Init page
+// function initPage() {
+//     const path = window.location.pathname;
+//     if (path.includes("index.html") || path === "/") getMeals();
+//     else if (path.includes("pages/Categories.html")) getCategories();
+//     else if (path.includes("pages/Area.html")) getAreas();
+//     else if (path.includes("pages/Ingredients.html")) getIngredients();
+// }
+
 function initPage() {
     const path = window.location.pathname;
-    if (path.includes("index.html") || path === "/") getMeals();
-    else if (path.includes("pages/Categories.html")) getCategories();
-    else if (path.includes("pages/Area.html")) getAreas();
-    else if (path.includes("pages/Ingredients.html")) getIngredients();
+
+    if (path.includes("Exam-js-yummy") && (path.includes("index.html") || path === "/")) getMeals();
+    else if (path.includes("Exam-js-yummy") && path.includes("Categories.html")) getCategories();
+    else if (path.includes("Exam-js-yummy") && path.includes("Area.html")) getAreas();
+    else if (path.includes("Exam-js-yummy") && path.includes("Ingredients.html")) getIngredients();
 }
 
 initPage();
