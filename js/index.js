@@ -73,10 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    Object.keys(inputs).forEach(key => {
+   Object.keys(inputs).forEach(key => {
+    if (inputs[key]) {   // الشرط اللي بيمنع الأخطاء
         inputs[key].addEventListener("input", () => validateField(key));
         inputs[key].addEventListener("blur", () => validateField(key));
-    });
+    }
+});
+
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
