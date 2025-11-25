@@ -365,21 +365,24 @@ async function getMealsByIngredient(ingredientName) {
 
 function initPage() {
     const path = window.location.pathname.toLowerCase();
-
-    if (path.includes("Exam-js-yummy") || path.includes("index")) {
+    if (path.includes("exam-js-yummy") && (path.includes("index") || path.endsWith("/"))) {
         getMeals();
-    } else if (path.includes("categories")) {
+    } 
+    else if (path.includes("exam-js-yummy") && path.includes("categories")) {
         getCategories();
-    } else if (path.includes("area")) {
+    } 
+    else if (path.includes("exam-js-yummy") && path.includes("area")) {
         getAreas();
-    } else if (path.includes("ingredients")) {
+    } 
+    else if (path.includes("exam-js-yummy") && path.includes("ingredients")) {
         getIngredients();
+    } 
+    else {
+        getMeals();
     }
 }
 
 initPage();
-
-
 
 
 // Search
