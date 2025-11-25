@@ -366,7 +366,7 @@ async function getMealsByIngredient(ingredientName) {
 function initPage() {
     const path = window.location.pathname.toLowerCase();
 
-    if (path.includes("exam-js-yummy") || path.includes("index")) {
+    if (path.includes("Exam-js-yummy") || path.includes("index")) {
         getMeals();
     } else if (path.includes("categories")) {
         getCategories();
