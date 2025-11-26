@@ -327,27 +327,111 @@ async function getMealsByIngredient(ingredientName) {
     hideLoader();
 }
 
+// Init page
+// function initPage() {
+//     const path = window.location.pathname;
+//     if (path.includes("index.html") || path === "/") getMeals();
+//     else if (path.includes("pages/Categories.html")) getCategories();
+//     else if (path.includes("pages/Area.html")) getAreas();
+//     else if (path.includes("pages/Ingredients.html")) getIngredients();
+// }
+
+// function initPage() {
+//     const path = window.location.pathname;
+
+//     if (path.includes("Exam-js-yummy") && (path.includes("index.html") || path === "/")) getMeals();
+//     else if (path.includes("Exam-js-yummy") && path.includes("Categories.html")) getCategories();
+//     else if (path.includes("Exam-js-yummy") && path.includes("Area.html")) getAreas();
+//     else if (path.includes("Exam-js-yummy") && path.includes("Ingredients.html")) getIngredients();
+// }
+
+// initPage();
+
 
 function initPage() {
-    const path = window.location.pathname.toLowerCase();
-    if (path.includes("exam-js-yummy") || (path.includes("index") || path.endsWith("/"))) {
+    const path = window.location.pathname;
+
+    if ((path.includes("Exam-js-yummy") || (path.includes("index.html") || path === "/")) || path.includes("index.html") || path === "/") {
         getMeals();
-    } 
-    else if (path.includes("exam-js-yummy") && path.includes("categories")) {
+    } else if ((path.includes("Exam-js-yummy") && path.includes("Categories.html")) || path.includes("Categories.html")) {
         getCategories();
-    } 
-    else if (path.includes("exam-js-yummy") && path.includes("area")) {
+    } else if ((path.includes("Exam-js-yummy") && path.includes("Area.html")) || path.includes("Area.html")) {
         getAreas();
-    } 
-    else if (path.includes("exam-js-yummy") && path.includes("ingredients")) {
+    } else if ((path.includes("Exam-js-yummy") && path.includes("Ingredients.html")) || path.includes("Ingredients.html")) {
         getIngredients();
-    } 
-    else {
-        getMeals();
     }
 }
-
 initPage();
+
+// function initPage() {
+//     const path = window.location.pathname.toLowerCase();
+//     if (path.includes("exam-js-yummy") && (path.includes("index") || path.endsWith("/"))) {
+//         getMeals();
+//     } 
+//     else if (path.includes("exam-js-yummy") && path.includes("categories")) {
+//         getCategories();
+//     } 
+//     else if (path.includes("exam-js-yummy") && path.includes("area")) {
+//         getAreas();
+//     } 
+//     else if (path.includes("exam-js-yummy") && path.includes("ingredients")) {
+//         getIngredients();
+//     } 
+
+//     else {
+//         getMeals();
+//     }
+// }
+
+// // شغّل الدالة
+// initPage();
+
+
+// function initPage() {
+//     const path = window.location.pathname.toLowerCase();
+
+//     if (path.includes("categories")) {
+//         getCategories();
+//     } 
+//     else if (path.includes("area")) {
+//         getAreas();
+//     } 
+//     else if (path.includes("ingredients")) {
+//         getIngredients();
+//     } 
+//     else {
+//         getMeals();   // دي صفحة index
+//     }
+// }
+
+// initPage();
+
+
+
+// function initPage() {
+//     const path = window.location.pathname.toLowerCase();
+
+//     // صفحات الاندكس + كونتاكت + سيرش
+//     if (
+//         path.includes("index") ||
+//         path.includes("contact") ||
+//         path.includes("search") ||
+//         path.endsWith("/") // لما يكون في الـ root
+//     ) {
+//         getMeals();
+//     }
+//     else if (path.includes("categories")) {
+//         getCategories();
+//     }
+//     else if (path.includes("area")) {
+//         getAreas();
+//     }
+//     else if (path.includes("ingredients")) {
+//         getIngredients();
+//     }
+// }
+// initPage();
+
 
 
 // Search
