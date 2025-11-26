@@ -328,14 +328,17 @@ async function getMealsByIngredient(ingredientName) {
 }
 
 // Init page
-// function initPage() {
-//     const path = window.location.pathname;
-//     if (path.includes("index.html") || path === "/") getMeals();
-//     else if (path.includes("pages/Categories.html")) getCategories();
-//     else if (path.includes("pages/Area.html")) getAreas();
-//     else if (path.includes("pages/Ingredients.html")) getIngredients();
-// }
-
+function initPage() {
+    const path = window.location.pathname;
+    
+    if (path.includes("exam-js-yummy") || (path.includes("index") || path.endsWith("/"))) {
+     getMeals();
+    }
+    else if (path.includes("pages/Categories.html")) getCategories();
+    else if (path.includes("pages/Area.html")) getAreas();
+    else if (path.includes("pages/Ingredients.html")) getIngredients();
+    }
+initPage();
 // function initPage() {
 //     const path = window.location.pathname;
 
@@ -348,20 +351,20 @@ async function getMealsByIngredient(ingredientName) {
 // initPage();
 
 
-function initPage() {
-    const path = window.location.pathname;
+// function initPage() {
+//     const path = window.location.pathname;
 
-    if ((path.includes("Exam-js-yummy") || (path.includes("index.html") || path === "/")) || path.includes("index.html") || path === "/") {
-        getMeals();
-    } else if ((path.includes("Exam-js-yummy") || path.includes("Categories.html")) || path.includes("Categories.html")) {
-        getCategories();
-    } else if ((path.includes("Exam-js-yummy") || path.includes("Area.html")) || path.includes("Area.html")) {
-        getAreas();
-    } else if ((path.includes("Exam-js-yummy") || path.includes("Ingredients.html")) || path.includes("Ingredients.html")) {
-        getIngredients();
-    }
-}
-initPage();
+//     if ((path.includes("Exam-js-yummy") || (path.includes("index.html") || path === "/")) || path.includes("index.html") || path === "/") {
+//         getMeals();
+//     } else if ((path.includes("Exam-js-yummy") || path.includes("Categories.html")) || path.includes("Categories.html")) {
+//         getCategories();
+//     } else if ((path.includes("Exam-js-yummy") || path.includes("Area.html")) || path.includes("Area.html")) {
+//         getAreas();
+//     } else if ((path.includes("Exam-js-yummy") || path.includes("Ingredients.html")) || path.includes("Ingredients.html")) {
+//         getIngredients();
+//     }
+// }
+// initPage();
 
 // function initPage() {
 //     const path = window.location.pathname.toLowerCase();
