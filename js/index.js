@@ -353,11 +353,11 @@ function initPage() {
 
     if ((path.includes("Exam-js-yummy") || (path.includes("index.html") || path === "/")) || path.includes("index.html") || path === "/") {
         getMeals();
-    } else if ((path.includes("Exam-js-yummy") && path.includes("Categories.html")) || path.includes("Categories.html")) {
+    } else if ((path.includes("Exam-js-yummy") || path.includes("Categories.html")) || path.includes("Categories.html")) {
         getCategories();
-    } else if ((path.includes("Exam-js-yummy") && path.includes("Area.html")) || path.includes("Area.html")) {
+    } else if ((path.includes("Exam-js-yummy") || path.includes("Area.html")) || path.includes("Area.html")) {
         getAreas();
-    } else if ((path.includes("Exam-js-yummy") && path.includes("Ingredients.html")) || path.includes("Ingredients.html")) {
+    } else if ((path.includes("Exam-js-yummy") || path.includes("Ingredients.html")) || path.includes("Ingredients.html")) {
         getIngredients();
     }
 }
